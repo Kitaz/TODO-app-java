@@ -1,4 +1,4 @@
-package jp.co.internous.ecsite;
+package jp.co.Kitaz.ecsite;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
