@@ -5,7 +5,7 @@ spring:
     enabled: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/ecdb?serverTimezone=Asia/Tokyo
+    url: jdbc:mysql://localhost:3306/todo?serverTimezone=Asia/Tokyo
     username: root
     password: mysql
     
@@ -14,7 +14,7 @@ mybatis:
   configuration:
     mapUnderscoreToCamelCase: true
   mapper-locations:
-    - classpath*:/jp/co/internous/ecsite/model/mapper/**/*.xml
+    - classpath*:/jp/co/Kitaz/its/model/mapper/**/*.xml
     
 logging:
   level:
