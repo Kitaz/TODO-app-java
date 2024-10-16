@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jp.co.Kitaz.its.model.form.IssueForm;
 import jp.co.Kitaz.its.service.IssueService;
@@ -20,23 +21,27 @@ public class IssueController {
 	
 	private final IssueService issueService;
 	
+	//トップページに飛ぶ
 	@RequestMapping("/")
 	public String index() {
 		return "/index";
 	}
 	
-	@GetMapping("/issues")
+	//タスク一覧画面に飛ぶ
+	@RequestMapping("/issues")
 	public String showList(Model model) {
 		model.addAttribute("issueList",issueService.findAll());
 		return "issues/list";
 	}
 	
+	//タスク作成画面に飛ぶ
 	@GetMapping("/creationForm")
 	public String showCreationForm(@ModelAttribute IssueForm form) {
 		return "issues/creationForm";
 	}
 	
 	//Post /issues
+	//タスクを作成する
 	@PostMapping
 	public String create(@Validated IssueForm form,BindingResult bindingResult,Model model) {
 		
@@ -52,9 +57,17 @@ public class IssueController {
 	}
 	
 	//GET localhost:8080/issues/1
+	//issuesの詳細画面を開く
 	@GetMapping("issues/{issueId}")
 	public String  showDetail(@PathVariable("issueId") long issueId,Model model) {
 		model.addAttribute("issue",issueService.findById(issueId));
 		return "issues/detail";
+	}
+	
+	//タスクを削除する
+	@PostMapping("/delete")
+	public String delete(@RequestParam("issueId") long issueId,Model model) {
+			model.addAttribute("issue", issueService.deleteId(issueId));
+		return"redirect:/issues";
 	}
 }

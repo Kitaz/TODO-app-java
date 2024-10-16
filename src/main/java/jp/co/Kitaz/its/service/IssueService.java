@@ -28,4 +28,8 @@ public class IssueService {
 	public IssueEntity findById(long issueId) {
 		return issueRepository.findById(issueId);
 	}
+	
+	public int deleteId(long issueId) {
+		return issueRepository.deleteId(issueId);
+	}
 }

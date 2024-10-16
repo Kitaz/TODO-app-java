@@ -3,7 +3,7 @@ package jp.co.Kitaz.its.model.session;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
-
+//ログイン機能保持予定
 @Component
 @Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class LoginSession {

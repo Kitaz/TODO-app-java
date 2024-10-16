@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	</h1>課題一覧</h1>
+	<h1>課題一覧</h1>
 	<a href="../index.html" th:href="@{/}">トップページ</a>
 	<a href="./creationForm.html" th:href="@{/creationForm}">課題作成</a>
 	<table>
@@ -24,6 +24,10 @@
 					th:text="${issue.summary}">
 						(summary)
 					</a>
+					<form method="post" th:action="@{/delete}">
+						<input type="hidden" th:name="issueId" th:value="${issue.id}">
+    					<button type="submit">削除</button>
+					</form>
 				</td>
 			</tr>
 		</tbody>

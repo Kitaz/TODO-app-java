@@ -2,6 +2,7 @@ package jp.co.Kitaz.its.model.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -19,4 +20,7 @@ public interface IssueRepository {
 	
 	@Select("select * from issues where id = #{issueId}")
 	IssueEntity findById(long issueId);
+	
+	@Delete("delete from issues where id = #{issueId}")
+	int deleteId(long issueId);
 }
