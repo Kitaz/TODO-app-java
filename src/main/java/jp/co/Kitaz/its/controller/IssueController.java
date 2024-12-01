@@ -21,7 +21,7 @@ public class IssueController {
 	
 	private final IssueService issueService;
 	
-	//トップページに飛ぶ
+	//トップページに飛ぶ aaa
 	@RequestMapping("/")
 	public String index() {
 		return "/index";
